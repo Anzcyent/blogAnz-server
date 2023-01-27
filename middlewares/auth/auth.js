@@ -5,11 +5,11 @@ const { isTokenIncluded } = require('../../helpers/auth/authHelpers');
 const User = require('../../schemas/User'); 
 
 const getAccessToRoute = errorWrapper(async (req, res, next) => {
-    if (!isTokenIncluded(req)) return next(new CustomError('You are not authorized to access this route, no token.', 401));
+    if (!isTokenIncluded(req)) return next(new CustomError('You have to login for this operation, no token found.', 401));
     const access_token = req.headers.authorization.split(':')[1];
 
     jwt.verify(access_token, process.env.JWT_ACCESS_SECRET, async (err, decoded) => {
-        if (err) return next(new CustomError('You are not authorized to access this route.', 401));
+        if (err) return next(new CustomError('You have to login for this operation.', 401));
 
         const user = await User.findById(decoded._id).select('-password');
 
