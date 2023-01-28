@@ -66,8 +66,23 @@ const getArticlesOfOwner = errorWrapper(async (req, res, next) => {
         })
 });
 
+const editArticle = errorWrapper(async (req, res, next) => {
+    const article = await Article.findByIdAndUpdate(req.article._id, req.body, {
+        timestamps: true,
+        new: true
+    });
+
+
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: article
+        });
+});
 
 
 
 
-module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner };
+
+module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle };
