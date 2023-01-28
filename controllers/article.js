@@ -42,16 +42,11 @@ const getAllArticles = errorWrapper(async (req, res, next) => {
 });
 
 const getArticleById = errorWrapper(async (req, res, next) => {
-    const { id } = req.params;
-    const article = await Article.findById(id).populate({ path: "author", select: "name" });
-
-    if (!article) return next(new CustomError("Article Not Found", 404));
-
     res
         .status(200)
         .json({
             success: true,
-            data: article
+            data: req.article
         })
 });
 

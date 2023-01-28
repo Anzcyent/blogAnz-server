@@ -6,7 +6,7 @@ const { checkArticleExists } = require('../middlewares/db/checkExist');
 
 router.post('/create', getAccessToRoute, createArticle);
 router.get('/', getAllArticles);
-router.get('/article/:id', getArticleById);
+router.get('/:id', checkArticleExists, getArticleById);
 router.get('/articles-of-owner', getAccessToRoute, getArticlesOfOwner);
 router.put('/edit-article/:id', [getAccessToRoute, checkArticleExists], editArticle);
 router.delete('/delete-article/:id', [getAccessToRoute, checkArticleExists], deleteArticle);

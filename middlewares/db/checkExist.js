@@ -5,7 +5,7 @@ const errorWrapper = require('express-async-handler');
 const checkArticleExists = errorWrapper(async (req, res, next) => {
     const { id } = req.params;
 
-    const article = await Article.findById(id);
+    const article = await Article.findById(id).populate({path: "author", select: "name"});
 
     if (!article) return next(new CustomError("Article not found. Please check your parameters.", 404));
 
