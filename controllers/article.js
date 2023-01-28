@@ -81,8 +81,20 @@ const editArticle = errorWrapper(async (req, res, next) => {
         });
 });
 
+const deleteArticle = errorWrapper(async (req, res, next) => {
+    const article = await Article.findByIdAndRemove(req.article._id);
+
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: article
+        });
+});
 
 
 
 
-module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle };
+
+
+module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle, deleteArticle };
