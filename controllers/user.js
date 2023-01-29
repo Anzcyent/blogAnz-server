@@ -4,7 +4,7 @@ const errorWrapper = require('express-async-handler');
 
 
 const getUser = errorWrapper(async (req, res, next) => {
-    const user = await User.findById(req.params.id).select('-password');
+    const user = await User.findById(req.params.id).select('-password').populate('articles');
     if (!user) return next(new CustomError('User not found', 404));
 
     res
