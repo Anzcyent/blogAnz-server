@@ -78,6 +78,11 @@ const editArticle = errorWrapper(async (req, res, next) => {
 
 const deleteArticle = errorWrapper(async (req, res, next) => {
     const article = await Article.findByIdAndRemove(req.article._id);
+    const user = await User.findById(article.author._id);
+
+    user.articles.remove(article);
+
+    await user.save();
 
     res
         .status(200)
