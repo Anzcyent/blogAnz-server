@@ -94,6 +94,7 @@ const deleteArticle = errorWrapper(async (req, res, next) => {
 
 const vote = errorWrapper(async (req, res, next) => {
     const article = await Article.findById(req.article._id);
+    const article_owner = await User.findById(article.author._id);
 
     if (article.votes.includes(req.user._id)) {
         article.votes.remove(req.user._id);
@@ -104,6 +105,10 @@ const vote = errorWrapper(async (req, res, next) => {
 
         await article.save();
     }
+
+    article_owner.reputation = article.votes.length * 5;
+
+    await article_owner.save();
 
     res
         .status(200)

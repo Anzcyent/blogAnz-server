@@ -23,7 +23,11 @@ const UserSchema = new Schema({
             type: Types.ObjectId,
             ref: "Article"
         }
-    ]
+    ],
+    reputation: {
+        type: Number,
+        default: 0
+    }
 }, {
     timestamps: true
 });
