@@ -16,7 +16,13 @@ const ArticleSchema = new Schema({
     author: {
         type: Types.ObjectId,
         ref: "User"
-    }
+    },
+    votes: [
+        {
+            type: Types.ObjectId,
+            ref: "User"
+        }
+    ]
 }, {
     timestamps: true
 })

@@ -92,9 +92,27 @@ const deleteArticle = errorWrapper(async (req, res, next) => {
         });
 });
 
+const vote = errorWrapper(async (req, res, next) => {
+    const article = await Article.findById(req.article._id);
+
+    if (article.votes.includes(req.user._id)) {
+        article.votes.remove(req.user._id);
+
+        await article.save();
+    } else {
+        article.votes.push(req.user._id);
+
+        await article.save();
+    }
+
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: article
+        })
+});
 
 
 
-
-
-module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle, deleteArticle };
+module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle, deleteArticle, vote };
