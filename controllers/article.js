@@ -99,16 +99,19 @@ const vote = errorWrapper(async (req, res, next) => {
     if (article.votes.includes(req.user._id)) {
         article.votes.remove(req.user._id);
 
-        await article.save();
+        article_owner.reputation = article_owner.reputation - 5;
+
     } else {
         article.votes.push(req.user._id);
 
-        await article.save();
+        article_owner.reputation = article_owner.reputation + 5;
     }
 
-    article_owner.reputation = article.votes.length * 5;
+
 
     await article_owner.save();
+
+    await article.save();
 
     res
         .status(200)
