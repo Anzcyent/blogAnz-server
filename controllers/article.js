@@ -121,6 +121,19 @@ const vote = errorWrapper(async (req, res, next) => {
         })
 });
 
+const searchArticle = errorWrapper(async (req, res, next) => {
+    const {title} = req.query;
+
+    const articles = await Article.find({title: {$regex: title, $options: "i"}});
+
+    res
+    .status(articles.length > 0 ? 200 : 404)
+    .json({
+        success: true,
+        data: articles
+    })
+})
 
 
-module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle, deleteArticle, vote };
+
+module.exports = { createArticle, getAllArticles, getArticleById, getArticlesOfOwner, editArticle, deleteArticle, vote, searchArticle };
