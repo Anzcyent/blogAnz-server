@@ -122,16 +122,17 @@ const vote = errorWrapper(async (req, res, next) => {
 });
 
 const searchArticle = errorWrapper(async (req, res, next) => {
-    const {title} = req.query;
+    const { title } = req.query;
 
-    const articles = await Article.find({title: {$regex: title, $options: "i"}});
+    const articles = await Article.find({ title: { $regex: title, $options: "i" } });
 
     res
-    .status(200)
-    .json({
-        success: true,
-        data: articles
-    })
+        .status(200)
+        .json({
+            success: true,
+            data: articles
+        })
+
 })
 
 
