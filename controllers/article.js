@@ -127,7 +127,7 @@ const searchArticle = errorWrapper(async (req, res, next) => {
     const articles = await Article.find({title: {$regex: title, $options: "i"}});
 
     res
-    .status(articles.length > 0 ? 200 : 404)
+    .status(200)
     .json({
         success: true,
         data: articles
