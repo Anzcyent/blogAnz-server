@@ -31,7 +31,7 @@ const createArticle = errorWrapper(async (req, res, next) => {
 
 
 const getAllArticles = errorWrapper(async (req, res, next) => {
-    const articles = await Article.find().populate({ path: "author", select: "name reputation" });
+    const articles = await Article.find().populate({ path: "author", select: "name reputation" }).populate({ path: "comments", select: "description createdAt" });
 
     res
         .status(200)
