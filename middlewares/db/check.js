@@ -5,14 +5,15 @@ const errorWrapper = require('express-async-handler');
 const checkArticleExists = errorWrapper(async (req, res, next) => {
     const { id } = req.params;
 
-    const article = await Article.findById(id).populate({ path: "author", select: "name reputation" }).populate({ path: "comments", select: "description createdAt", populate: { path: "user", select: "name reputation" } });
+    const article = await Article.findById(id).populate({ path: "author", select: "name reputation" }).populate({ path: "comments", select: "description createdAt", options: { sort: { 'createdAt': -1 } }, populate: { path: "user", select: "name reputation" } });
 
-    if (!article) return next(new CustomError("Article not found. Please check your parameters.", 404));
+    if (!article) return next(new CustomError("Makale bulunamadı. Lütfen parametrelerinizi kontrol edin.", 404));
 
     req.article = article;
 
     next();
 });
+
 
 const checkVoterOfArticle = errorWrapper(async (req, res, next) => {
     const article = await Article.findById(req.article._id);
