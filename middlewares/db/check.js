@@ -6,7 +6,7 @@ const Comment = require('../../schemas/Comment');
 const checkArticleExists = errorWrapper(async (req, res, next) => {
     const { id } = req.params;
 
-    const article = await Article.findById(id).populate({ path: "author", select: "name reputation" }).populate({ path: "comments", select: "description createdAt", options: { sort: { 'createdAt': -1 } }, populate: { path: "user", select: "name reputation" } });
+    const article = await Article.findById(id).populate({ path: "author", select: "name reputation" }).populate({ path: "comments", select: "description createdAt votes", options: { sort: { 'createdAt': -1 } }, populate: { path: "user", select: "name reputation" } });
 
     if (!article) return next(new CustomError("Article not found. Please check your parameters.", 404));
 
