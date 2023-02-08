@@ -55,4 +55,15 @@ const vote = errorWrapper(async (req, res, next) => {
         })
 })
 
-module.exports = { createComment, vote }
+const deleteComment = errorWrapper(async (req, res, next) => {
+    const comment = await Comment.findByIdAndDelete(req.comment._id);
+
+    res
+    .status(200)
+    .json({
+        success: true,
+        data: comment
+    });
+});
+
+module.exports = { createComment, vote, deleteComment }

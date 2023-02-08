@@ -2,6 +2,7 @@ const Article = require('../../schemas/Article');
 const CustomError = require('../../helpers/error/CustomError');
 const errorWrapper = require('express-async-handler');
 const Comment = require('../../schemas/Comment');
+const User = require('../../schemas/User');
 
 const checkArticleExists = errorWrapper(async (req, res, next) => {
     const { id } = req.params;
@@ -42,11 +43,22 @@ const checkVoterOfComment = errorWrapper(async (req, res, next) => {
     if (String(comment.user._id) === String(req.user._id)) return next(new CustomError("You can't vote your own comment.", 400));
 
     next();
-})
+});
+
+const checkCommentDeletionAuth = errorWrapper(async (req, res, next) => {
+    const comment = await Comment.findById(req.comment._id);
+
+    const user = await User.findById(req.user._id);
+
+    if (String(user._id) !== String(comment.user._id)) return next(new CustomError("You can only delete your own comments.", 400));
+
+    next();
+});
 
 module.exports = {
     checkArticleExists,
     checkVoterOfArticle,
     checkCommentExists,
-    checkVoterOfComment
+    checkVoterOfComment,
+    checkCommentDeletionAuth
 }

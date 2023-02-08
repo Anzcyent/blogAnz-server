@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "v1.8.14",
+  "version": "v1.9.14",
   "description": "Server side of bloganz project.",
   "main": "server.js",
   "scripts": {
