@@ -3,13 +3,14 @@ const cors = require('cors');
 const connectDB = require('./helpers/db/connectDB');
 const routers = require('./routers');
 const errorHandler = require('./middlewares/error/errorHandler');
+const helmet = require('helmet');
 
 require('dotenv').config();
 
 const PORT = process.env.PORT;
 const app = express();
 
-
+app.use(helmet());
 app.use(express.json());
 app.use(cors());
 app.use('/api', routers);
