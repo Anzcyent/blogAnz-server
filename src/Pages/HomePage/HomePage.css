@@ -1,0 +1,52 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.home-page-image-section {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    opacity: .8;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px var(--primary-color);
+    margin-top: 15px;
+}
+
+.home-page-image {
+    width: 75%;
+    height: 100%;
+    background-size: cover;
+    box-shadow: 0px 0px 10px #fff;
+}
+
+.home-page-description {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.home-page-description h4 {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .home-page-title {
+        font-size: 1rem;
+    }
+    .home-page-image {
+        height: 25vh;
+    }
+
+    .home-page-description h4 {
+        font-size: .8rem;
+    }
+
+    .home-page-description p {
+        font-size: .75rem;
+    }
+}

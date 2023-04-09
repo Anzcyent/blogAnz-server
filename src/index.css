@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,300&display=swap');
+
+:root {
+    --primary-color: rgb(29, 27, 27);
+    --secondary-color: rgb(111, 111, 197);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins',sans-serif;
+}
+
+blockquote {
+    position: relative;
+    font-style: italic;
+}
+
+blockquote::before {
+    content: "";
+    width: 5px;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.274);
+    position: absolute;
+    left: -6px;
+    
+}
+
+input {
+    border: none;
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.6);
+    padding: .6rem;
+    font-family: "Poppins", sans-serif;
+    transition: all .3s linear
+}
+
+input:focus {
+    background-color: rgba(0, 0, 0, 0.048);
+    outline: none;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+button {
+    padding: 0 1rem;
+    margin: .2rem;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: .8;
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+.form-error {
+    color: rgb(206, 54, 54);
+    text-shadow: 0px 0px 5px rgba(255, 0, 0, 0.349);
+}
+
+.reputation-badge {
+    background-color: rgb(187, 70, 70);
+    color: #fff;
+    font-weight: 500;
+    padding: 0 .3rem;
+    border-radius: 10px;
+}
+
+/* Quill */
+.ql-size-small {
+    font-size: 13px;
+}
+
+.ql-size-large {
+    font-size: 20px;
+}
+
+.ql-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ql-editor  {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+/* for future */
+.ql-editor img {
+    max-width: 25vw !important;
+}

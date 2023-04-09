@@ -1,0 +1,60 @@
+.dashboard {
+    display: flex;
+    width: 100vw;
+    height: 100%;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: .5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.show-my-articles {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.create-article {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(54, 48, 48);
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.show-my-articles:hover,
+.create-article:hover {
+    transform: scale(1.1);
+    transition: all 0.8s ease-in-out;
+}
+
+
+.show-my-articles:active,
+.create-article:active {
+    opacity: .1;
+}
+
+@media (max-width: 768px) {
+   .dashboard {
+    flex-direction: column;
+   }
+
+   .show-my-articles {
+    width: 100%;
+    height: 50%;
+   }
+
+   .create-article {
+    width: 100%;
+    height: 50%;
+   }
+}

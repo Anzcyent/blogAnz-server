@@ -1,0 +1,42 @@
+.user-page {
+    padding: 1rem;
+}
+
+.user-page-articles-list-item {
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.5em;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.user-page-articles-list-item a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.user-page-articles-list-item:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.user-page-articles-list-item:active {
+    transform: scale(.99);
+}
+
+@media (max-width: 768px) {
+    .user-page-title {
+        font-size: 13px;
+    }
+
+    .user-page span {
+        font-size: 11px;
+    }
+
+    .user-page-articles-list-item {
+        font-size: 10px;
+    }
+}

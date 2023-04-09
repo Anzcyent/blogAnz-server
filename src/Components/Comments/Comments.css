@@ -1,0 +1,120 @@
+.comments-section {
+    min-width: 50vw;
+}
+
+.comments-form {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.comments-form button {
+    width: 10%;
+    padding: .8rem;
+    margin-top: 20px;
+}
+
+.comments {
+    overflow-y: auto;
+    max-height: 35vh;
+}
+
+.comments::-webkit-scrollbar {
+    width: 5px;
+}
+
+.comment {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 3px var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.comment-user-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-user-area a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.comment-user-area a:hover {
+    opacity: .8;
+}
+
+.comment-description-area {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-date {
+    text-shadow: 0 0 3px #fff;
+}
+
+.comment-utils {
+    border-radius: 5px;
+    padding: .3rem;
+    width: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-utils .vote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #000;
+    padding: .3rem 1rem;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.comment-utils .vote:hover {
+    opacity: .6;
+}
+
+.comment-utils .vote:active {
+    transform: scale(.98);
+}
+
+
+.comment-utils .delete-comment:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.comment-utils .delete-comment:active {
+    transform: scale(.98);
+}
+
+@media (max-width: 767px) {
+    .comments {
+        font-size: 10px;
+    }
+
+    .comments-form button {
+        font-size: 9px;
+        padding: .5rem;
+    }
+
+    .comment-utils {
+        width: 10%;
+    }
+}

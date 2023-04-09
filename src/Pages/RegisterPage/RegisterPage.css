@@ -1,0 +1,44 @@
+.register-page {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.register-page-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.register-page-form input {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.register-page-form button {
+    padding: .5rem 1rem;
+}
+
+@media (max-width: 768px) {
+    .register-page-title {
+        font-size: 14px;
+    }
+
+    .register-page-form input{
+        font-size: 12px ;
+    }
+
+    .register-page-form button {
+        font-size: 10px;
+    }
+
+    .password-eye {
+        font-size: 13px;
+    }
+}

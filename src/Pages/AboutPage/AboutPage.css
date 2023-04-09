@@ -1,0 +1,34 @@
+.about-page {
+    padding: 1rem;
+}
+
+.about-title {
+    text-align: center;
+}
+
+.about-description {
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.language-buttons {
+    position: fixed;
+    right: 0;
+    top: 10%;
+}
+
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 13px;
+    }
+
+    .about-description {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .language-buttons {
+        top: 50%;
+    }
+}
