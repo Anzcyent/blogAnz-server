@@ -22,7 +22,7 @@ const login = errorWrapper(async (req, res, next) => {
     const user = await User.findOne({ email });
     if (!user) return next(new CustomError("There is no user with that email address.", 404));
 
-    if (!isMatchPassword(password, user.password)) return next(new CustomError("Wrong password!", 404));
+    if (!isMatchPassword(password, user.password)) return next(new CustomError("Wrong password!", 400));
 
     sendJWTToClient(user, res);
 })
